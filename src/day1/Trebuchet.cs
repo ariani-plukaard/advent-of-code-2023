@@ -36,51 +36,65 @@ public class Trebuchet
 
     private string ConvertAllWordsToDigits(string line)
     {
-        for (var i = 0; i < line.Length; i++)
-        {
-            switch (line[i]) 
-            {
-                case 'o':
-                    line = ConvertToDigitIfWord(line, i, "one", "1");
-                    break;
-                case 't':
-                    line = ConvertToDigitIfWord(line, i, "two", "2");
-                    line = ConvertToDigitIfWord(line, i, "three", "3");
-                    break;
-                case 'f':
-                    line = ConvertToDigitIfWord(line, i, "four", "4");
-                    line = ConvertToDigitIfWord(line, i, "five", "5");
-                    break;
-                case 's':
-                    line = ConvertToDigitIfWord(line, i, "six", "6");
-                    line = ConvertToDigitIfWord(line, i, "seven", "7");
-                    break;
-                case 'e':
-                    line = ConvertToDigitIfWord(line, i, "eight", "8");
-                    break;
-                case 'n':
-                    line = ConvertToDigitIfWord(line, i, "nine", "9");
-                    break;
-            }
-        }
-        // Console.Write(line + " - ");
+        line = line.Replace("one", "o1e");
+        line = line.Replace("two", "t2o");
+        line = line.Replace("three", "t3e");
+        line = line.Replace("four", "4");
+        line = line.Replace("five", "5e");
+        line = line.Replace("six", "6");
+        line = line.Replace("seven", "7n");
+        line = line.Replace("eight", "e8t");
+        line = line.Replace("nine", "n9e");
         return line;
     }
 
-    private string ConvertToDigitIfWord(string line, int firstLetterIndex, string numWord, string digit)
-    {
-        if (IsNumberWord(line, firstLetterIndex, numWord))
-        {
-            line = line.Remove(firstLetterIndex, numWord.Length).Insert(firstLetterIndex, digit + numWord.Last());
-        }
-
-        return line;
-    }
-
-    private bool IsNumberWord(string line, int firstLetterIndex, string numWord)
-    {
-        return (firstLetterIndex <= line.Length - numWord.Length) && line.Substring(firstLetterIndex, numWord.Length).Equals(numWord);
-    }
+    // private string ConvertAllWordsToDigits(string line)
+    // {
+    //     for (var i = 0; i < line.Length; i++)
+    //     {
+    //         switch (line[i]) 
+    //         {
+    //             case 'o':
+    //                 line = ConvertToDigitIfWord(line, i, "one", "1");
+    //                 break;
+    //             case 't':
+    //                 line = ConvertToDigitIfWord(line, i, "two", "2");
+    //                 line = ConvertToDigitIfWord(line, i, "three", "3");
+    //                 break;
+    //             case 'f':
+    //                 line = ConvertToDigitIfWord(line, i, "four", "4");
+    //                 line = ConvertToDigitIfWord(line, i, "five", "5");
+    //                 break;
+    //             case 's':
+    //                 line = ConvertToDigitIfWord(line, i, "six", "6");
+    //                 line = ConvertToDigitIfWord(line, i, "seven", "7");
+    //                 break;
+    //             case 'e':
+    //                 line = ConvertToDigitIfWord(line, i, "eight", "8");
+    //                 break;
+    //             case 'n':
+    //                 line = ConvertToDigitIfWord(line, i, "nine", "9");
+    //                 break;
+    //         }
+    //     }
+    //     // Console.Write(line + " - ");
+    //     return line;
+    // }
+    //
+    // private string ConvertToDigitIfWord(string line, int firstLetterIndex, string numWord, string digit)
+    // {
+    //     if (IsNumberWord(line, firstLetterIndex, numWord))
+    //     {
+    //         line = line.Remove(firstLetterIndex, numWord.Length).Insert(firstLetterIndex, digit + numWord.Last());
+    //     }
+    //
+    //     return line;
+    // }
+    //
+    // private bool IsNumberWord(string line, int firstLetterIndex, string numWord)
+    // {
+    //     return (firstLetterIndex <= line.Length - numWord.Length) && line.Substring(firstLetterIndex, numWord.Length).Equals(numWord);
+    // }
     
     
     
